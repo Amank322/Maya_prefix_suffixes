@@ -45,7 +45,8 @@ else:
  
         # Create new name with the prefix and suffix, handling underscores appropriately
         new_name = (prefix1 + "_" if prefix1 else "") + obj + ("_" + suffix1 if suffix1 else "")
- 
-        # Rename the object
-        renamed_obj = cmds.rename(obj, new_name)
-        print((f"Renamed to: {renamed_obj}"))
+        
+        if user_prefix == "yes" or user_suffix == "yes":  
+            # Rename the object
+            renamed_obj = cmds.rename(obj, new_name)
+        print(f"Renamed to: {renamed_obj}")
